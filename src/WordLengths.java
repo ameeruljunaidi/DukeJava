@@ -9,7 +9,7 @@ public class WordLengths {
      * @param resource file to be read
      * @param counts   reference to array of word counts
      */
-    public void countWordLengths(FileResource resource, int[] counts) {
+    public static void countWordLengths(FileResource resource, int[] counts) {
 
         // counts[k] should contain the number of words of length k
         // Trim start and end for non-character
@@ -39,7 +39,7 @@ public class WordLengths {
      * @param values array contains values to compare
      * @return index of highers count, returns -1 if for some reason cannot find
      */
-    public int indexOfMax(int[] values) {
+    public static int maxIndex(int[] values) {
         int maxValue = 0;
         int maxIndex = -1;
 
@@ -51,19 +51,5 @@ public class WordLengths {
         }
 
         return maxIndex;
-    }
-
-    public void testCountWordLengths() {
-        FileResource fr = new FileResource();
-        int[] counts = new int[31];
-
-        countWordLengths(fr, counts);
-        System.out.println(indexOfMax(counts));
-    }
-
-
-    public static void main(String[] args) {
-        WordLengths wl = new WordLengths();
-        wl.testCountWordLengths();
     }
 }

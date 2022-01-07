@@ -52,7 +52,7 @@ public class WordPlay {
         StringBuilder ret = new StringBuilder(phrase);
 
         for (int i = 0; i < phrase.length(); i++) {
-            if(String.valueOf(ret.charAt(i)).equalsIgnoreCase(String.valueOf(ch))) {
+            if (String.valueOf(ret.charAt(i)).equalsIgnoreCase(String.valueOf(ch))) {
                 if ((i + 1) % 2 == 0) {
                     ret.setCharAt(i, '+');
                 } else {
@@ -62,11 +62,5 @@ public class WordPlay {
         }
 
         return ret.toString();
-    }
-
-    public static void main(String[] args) {
-        WordPlay wp = new WordPlay();
-        System.out.println(wp.replaceVowels("Hello World", '*'));
-        System.out.println(wp.emphasize("Mary Bella Abracadabra", 'a'));
     }
 }

@@ -7,7 +7,7 @@ public class CaesarCipher {
      * @param key   is the amount of shift that needs to be done to the alphabets
      * @return a string that has been encrypted using the caesar cipher algorithm
      */
-    public String encrypt(String input, int key) {
+    public static String encrypt(String input, int key) {
         StringBuilder encrypted = new StringBuilder(input);
 
         String lower = "abcdefghijklmnopqrstuvwxyz";
@@ -52,7 +52,7 @@ public class CaesarCipher {
      * @param key2 key to modify even character
      * @return a string that has been encrypted using some algorithm
      */
-    public String encryptTwoKeys(String input, int key1, int key2) {
+    public static String encryptTwoKeys(String input, int key1, int key2) {
         StringBuilder encrypted = new StringBuilder(input);
 
         String odd = encrypt(encrypted.toString(), key1);
@@ -69,7 +69,5 @@ public class CaesarCipher {
         return encrypted.toString();
     }
 
-    public static void main(String[] args) {
-    }
 }
 
