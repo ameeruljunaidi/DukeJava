@@ -32,6 +32,12 @@ public class CaesarCipher {
         return encrypted.toString();
     }
 
+    /**
+     * Decrypt the input given by creating a new object within a class
+     *
+     * @param input the encrypted message to decrypt
+     * @return the decrypted message
+     */
     public String decrypt(String input) {
         CaesarCipher cc = new CaesarCipher(26 - key);
         return cc.encrypt(input);
