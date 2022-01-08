@@ -1,62 +1,55 @@
-import edu.duke.FileResource;
-
 public class CaesarCipher {
+    private final String alphabet;
+    private final String shiftedAlphabet;
+    private final int key;
+
+    public CaesarCipher(int key) {
+        this.alphabet = "abcdefghijklmnopqrstuvwxyz";
+        this.shiftedAlphabet = alphabet.substring(key) + alphabet.substring(0, key);
+        this.key = key;
+    }
 
     /**
      * @param input the original string itself
-     * @param key   is the amount of shift that needs to be done to the alphabets
      * @return a string that has been encrypted using the caesar cipher algorithm
      */
-    public static String encrypt(String input, int key) {
+    public String encrypt(String input) {
         StringBuilder encrypted = new StringBuilder(input);
-
-        String lower = "abcdefghijklmnopqrstuvwxyz";
-        String shiftedLower = lower.substring(key) + lower.substring(0, key);
-        String upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        String shiftedUpper = upper.substring(key) + upper.substring(0, key);
 
         for (int i = 0; i < encrypted.length(); i++) {
             char currChar = encrypted.charAt(i);
+            int index = alphabet.indexOf(Character.toLowerCase(currChar));
 
-            if (currChar >= 'a' && currChar <= 'z') {
-                int index = lower.indexOf(currChar);
+            if (index != -1) {
+                char lowerCaseReplace = shiftedAlphabet.charAt(index);
+                char upperCaseReplace = Character.toUpperCase(lowerCaseReplace);
+                char newChar = Character.isLowerCase(encrypted.charAt(i)) ? lowerCaseReplace : upperCaseReplace;
 
-                if (index != -1) {
-                    char newChar = shiftedLower.charAt(index);
-                    encrypted.setCharAt(i, newChar);
-                }
-            } else {
-                int index = upper.indexOf(currChar);
-
-                if (index != -1) {
-                    char newChar = shiftedUpper.charAt(index);
-                    encrypted.setCharAt(i, newChar);
-                }
+                encrypted.setCharAt(i, newChar);
             }
         }
 
         return encrypted.toString();
     }
 
-    public void testCaesar() {
-        int key = 23;
-        FileResource fr = new FileResource();
-        String message = fr.asString();
-        String encrypted = encrypt(message, key);
-        System.out.println("Key is " + key + "\n" + encrypted);
+    public String decrypt(String input) {
+        CaesarCipher cc = new CaesarCipher(26 - key);
+        return cc.encrypt(input);
     }
 
     /**
+     * TODO: This needs to change if we're doing this in an oop way
+     *
      * @param input the string to modify
-     * @param key1 key to modify odd character
-     * @param key2 key to modify even character
+     * @param key1  key to modify odd character
+     * @param key2  key to modify even character
      * @return a string that has been encrypted using some algorithm
      */
-    public static String encryptTwoKeys(String input, int key1, int key2) {
+    public String encryptTwoKeys(String input, int key1, int key2) {
         StringBuilder encrypted = new StringBuilder(input);
 
-        String odd = encrypt(encrypted.toString(), key1);
-        String even = encrypt(encrypted.toString(), key2);
+        String odd = encrypt(encrypted.toString());
+        String even = encrypt(encrypted.toString());
 
         for (int i = 0; i < encrypted.length(); i++) {
             if ((i + 1) % 2 == 0) {
