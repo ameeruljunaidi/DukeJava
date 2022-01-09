@@ -1,55 +1,99 @@
-/**
- * Find out how many times each word occurs, and
- * in particular the most frequently occurring word.
- * 
- * @author Duke Software Team
- * @version 1.0
- */
-import edu.duke.*;
-import java.util.ArrayList;
+import edu.duke.FileResource;
 
-public class WordFrequencies
-{
+import javax.swing.plaf.IconUIResource;
+import java.util.ArrayList;
+import java.util.Locale;
+
+/**
+ * Determine the word that occurs the most often in a file
+ * If more than one word occurs as the most often, return the fist such word found
+ * ! Make all words lowercase before counting them
+ * ! Punctuation should be ignored - "end" and "end," are different words
+ */
+
+public class WordFrequencies {
     private ArrayList<String> myWords;
     private ArrayList<Integer> myFreqs;
-    
+
     public WordFrequencies() {
-        myWords = new ArrayList<String>();
-        myFreqs = new ArrayList<Integer>();
+        this.myWords = new ArrayList<>();
+        this.myFreqs = new ArrayList<>();
     }
-    
-    public void findUnique(){
-        FileResource resource = new FileResource();
-        
-        for(String s : resource.words()){
-            s = s.toLowerCase();
-            int index = myWords.indexOf(s);
-            if (index == -1){
-                myWords.add(s);
-                myFreqs.add(1);
-            }
-            else {
-                int freq = myFreqs.get(index);
-                myFreqs.set(index,freq+1);
+
+    /**
+     * Get the size of the word array
+     *
+     * @return length of myWords/myFreqs array
+     */
+    public int getSize() {
+        assert myWords.size() == myFreqs.size();
+
+        return this.myWords.size();
+    }
+
+    /**
+     * Get the words at a certain index
+     *
+     * @param index the index to access in the myWords array
+     * @return the word that is at that index
+     */
+    public String getWord(int index) {
+        return myWords.get(index);
+    }
+
+    /**
+     * Get the count of certain words at a particular index
+     *
+     * @param index the index to access the myFreqs array
+     * @return the count that is at that index
+     */
+    public int getFreq(int index) {
+        return myFreqs.get(index);
+    }
+
+    /**
+     * Clear both myWords and myFreqs, using the .clear() method
+     * Then selects a file and iterates over every word in the file
+     * Putting the unique words found into myWords
+     * For each world in the kth position, count how much occurrence into myFreqs
+     */
+    public void findUnique(String filename) {
+        this.myWords.clear();
+        this.myFreqs.clear();
+
+        FileResource fr = new FileResource(filename);
+
+        for (String word : fr.words()) {
+            String lowerCaseWord = word.toLowerCase();
+
+            if (!myWords.contains(lowerCaseWord)) {
+                this.myWords.add(lowerCaseWord);
+                this.myFreqs.add(1);
+            } else {
+                int index = this.myWords.indexOf(lowerCaseWord);
+                int newCount = this.myFreqs.get(index) + 1;
+                this.myFreqs.set(index, newCount);
             }
         }
     }
-    
-    public void tester(){
-        findUnique();
-        System.out.println("# unique words: "+myWords.size());
-        int index = findMax();
-        System.out.println("max word/freq: "+myWords.get(index)+" "+myFreqs.get(index));
-    }
-    public int findMax(){
-        int max = myFreqs.get(0);
+
+
+    /**
+     * Get the index of the word with the highest frequency
+     *
+     * @return the index with the highest frequency
+     */
+    public int findIndexOfMax() {
         int maxIndex = 0;
-        for(int k=0; k < myFreqs.size(); k++){
-            if (myFreqs.get(k) > max){
-                max = myFreqs.get(k);
-                maxIndex = k;
+        int maxValue = 0;
+
+        for (int i = 0; i < myFreqs.size(); i++) {
+            if (myFreqs.get(i) > maxValue) {
+                maxValue = myFreqs.get(i);
+                maxIndex = i;
             }
         }
+
         return maxIndex;
     }
 }
