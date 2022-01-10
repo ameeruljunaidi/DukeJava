@@ -9,16 +9,6 @@ import java.util.*;
 public class GladLibMap {
     private HashMap<String, ArrayList<String>> myMap;
 
-    private ArrayList<String> adjectiveList;
-    private ArrayList<String> nounList;
-    private ArrayList<String> colorList;
-    private ArrayList<String> countryList;
-    private ArrayList<String> nameList;
-    private ArrayList<String> animalList;
-    private ArrayList<String> timeList;
-    private ArrayList<String> verbList;
-    private ArrayList<String> fruitList;
-
     private ArrayList<String> usedWords;
     private ArrayList<String> categoriesUsed;
     private int wordsReplaced;
