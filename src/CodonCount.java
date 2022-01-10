@@ -1,7 +1,6 @@
 import edu.duke.FileResource;
 
 import java.util.HashMap;
-import java.util.logging.FileHandler;
 
 /**
  * Find out how many times each codon occurs in a strand of DNA based on reading frames
@@ -14,6 +13,25 @@ public class CodonCount {
     CodonCount(String filename) {
         this.dnaStrand = new FileResource(filename).asString().trim();
         this.dnaMap = new HashMap<>();
+    }
+
+    /**
+     * Get number of unique codons in the current frame
+     *
+     * @return the size of the HashMap that stores the codon
+     */
+    public int getMapSize() {
+        return this.dnaMap.size();
+    }
+
+    /**
+     * Get the number of times that codon showed up
+     *
+     * @param codon the particular codon we're looking for
+     * @return the size of value of the key (codon)
+     */
+    public int getOccurrenceCount(String codon) {
+        return dnaMap.get(codon);
     }
 
     /**

@@ -141,6 +141,7 @@ public class GladLib {
             sub = getSubstitute(w.substring(first + 1, last));
         }
 
+        usedWords.add(sub);
         wordsReplaced++;
 
         return prefix + sub + suffix;

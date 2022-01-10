@@ -15,6 +15,7 @@ public class WordsInFile {
 
     public WordsInFile() {
         this.wordMap = new HashMap<>();
+        this.buildWordFileMap();
     }
 
     /**
@@ -44,7 +45,10 @@ public class WordsInFile {
                 filesContainingWord = this.wordMap.get(word);
             }
 
-            filesContainingWord.add(f.getName());
+            if (!filesContainingWord.contains(f.getName())) {
+                filesContainingWord.add(f.getName());
+            }
+
             this.wordMap.put(word, filesContainingWord);
         }
     }
@@ -82,26 +86,31 @@ public class WordsInFile {
     }
 
     /**
-     * Call buildWordFileMap to select a group of files and build a HashMap of words
-     * Determine the max number of files any word is in, print the files
+     * Get the total number of words appearing in all fileCount files
+     *
+     * @param fileCount the number of files
+     * @return the total number of words that appear in all fileCount files
      */
-    public void tester() {
-        this.buildWordFileMap();
-        int maxNumber = this.maxNumber();
+    public int getTotalWords(int fileCount) {
+        int count = 0;
 
         for (String word : wordMap.keySet()) {
-            ArrayList<String> fileNames = wordMap.get(word);
-            int fileCount = fileNames.size();
-
-            if (fileCount == maxNumber) {
-                System.out.println("Word: " + word);
-
-                for (String fileName : fileNames) {
-                    System.out.println(fileName);
-                }
-
-                System.out.print("\n");
+            if (wordMap.get(word).size() == fileCount) {
+                count++;
             }
+        }
+
+        return count;
+    }
+
+    /**
+     * Print the files that the word appear in
+     *
+     * @param word the word to look for
+     */
+    public void printFiles(String word) {
+        for (String fileName : wordMap.get(word)) {
+            System.out.println(fileName);
         }
     }
 }

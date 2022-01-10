@@ -1,6 +1,7 @@
 import edu.duke.FileResource;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  * Determine the characters in one of Shakespeare's plays that has the most speaking parts
@@ -35,6 +36,14 @@ public class CharactersInPlay {
      */
     public int getCharacterCount(int index) {
         return this.characterCount.get(index);
+    }
+
+    public int getCharacterCountAtRank(int rank) {
+        ArrayList<Integer> sortedCount = new ArrayList<>(this.characterCount);
+
+        sortedCount.sort(Collections.reverseOrder());
+
+        return sortedCount.get(rank);
     }
 
     /**
@@ -96,6 +105,7 @@ public class CharactersInPlay {
     }
 
     /**
+     * Filter the character based on occurence
      * num1 should be less than or equal num2
      * Print out the names of all those characters that have exactly number speaking parts
      * Where number is greater than or equal to num1 and less than or equal to num2
@@ -131,5 +141,33 @@ public class CharactersInPlay {
         }
 
         return maxIndex;
+    }
+
+    public void findMaxFilteredByPartCount(int num1, int num2) {
+        ArrayList<Integer> characters = new ArrayList<>();
+
+        assert num1 <= num2;
+
+        for (int i = 0; i < this.getSize(); i++) {
+            int count = this.getCharacterCount(i);
+
+            if (count >= num1 && count <= num2) {
+                if (!characters.contains(i)) {
+                    characters.add(i);
+                }
+            }
+        }
+
+        int maxCount = 0;
+        int maxIndex = 0;
+
+        for (int ci : characters) {
+            if (this.getCharacterCount(ci) > maxCount) {
+                maxCount = this.getCharacterCount(ci);
+                maxIndex = ci;
+            }
+        }
+
+        System.out.println(this.getCharacterName(maxIndex));
     }
 }
