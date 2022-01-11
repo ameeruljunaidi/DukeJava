@@ -111,4 +111,147 @@ public class LogAnalyzer {
 
         return uniqueIPs.size();
     }
+
+    /**
+     * Get a HashMap that maps na IP address to the number of times that IP address appears in records
+     * The number times this IP address visited the website
+     *
+     * @return a HashMap of String and Integer with IP address as key and count as value
+     */
+    public HashMap<String, Integer> countVisitsPerIP() {
+        HashMap<String, Integer> visits = new HashMap<>();
+
+        for (LogEntry le : records) {
+            String ipAddress = le.getIpAddress();
+
+            if (!visits.containsKey(ipAddress)) {
+                visits.put(ipAddress, 1);
+            } else {
+                visits.put(ipAddress, visits.get(ipAddress) + 1);
+            }
+        }
+
+        return visits;
+    }
+
+    /**
+     * Takes a map and map an IP address to the number of times that IP address appears in the web log file
+     *
+     * @param map the HashMap that contains the IP address as its key and count as value
+     * @return the max number in the value field of the map
+     */
+    public int mostNumberVisitsByIP(HashMap<String, Integer> map) {
+        int maxCount = 0;
+
+        for (String ipAddress : map.keySet()) {
+            int currentCount = map.get(ipAddress);
+            if (currentCount > maxCount) {
+                maxCount = currentCount;
+            }
+        }
+
+        return maxCount;
+    }
+
+    /**
+     * Get a list of IP addresses that all have the maximum number of visit to the website
+     *
+     * @param map is the map that contains the IP address as its key and count for its value
+     * @return an ArrayList of IP address that has the max number of visits to the website
+     */
+    public ArrayList<String> iPsMostVisits(HashMap<String, Integer> map) {
+        ArrayList<String> ipAddresses = new ArrayList<>();
+
+        int maxCount = mostNumberVisitsByIP(map);
+
+        for (String ipAddress : map.keySet()) {
+            if (map.get(ipAddress) == maxCount) {
+                ipAddresses.add(ipAddress);
+            }
+        }
+
+        return ipAddresses;
+    }
+
+    /**
+     * Get a map to see all the IP addresses that shows up during that day
+     * Format for the day is "MMM DD"
+     *
+     * @return a HashMap with key as value and ArrayList of IP addresses as the value
+     */
+    public HashMap<String, ArrayList<String>> iPsForDays() {
+        HashMap<String, ArrayList<String>> dayMap = new HashMap<>();
+
+        for (LogEntry le : records) {
+            String date = le.getAccessTime().toString().substring(4, 10);
+            ArrayList<String> ipAddresses;
+
+            if (!dayMap.containsKey(date)) {
+                ipAddresses = new ArrayList<>();
+
+            } else {
+                ipAddresses = dayMap.get(date);
+            }
+
+            ipAddresses.add(le.getIpAddress());
+            dayMap.put(date, ipAddresses);
+        }
+
+        return dayMap;
+    }
+
+    /**
+     * Get the day with the most visitors during that day
+     *
+     * @param dayMap the map that contains the day and the list of IP addresses that visits on that day
+     * @return the ArrayList in the map with the largest size
+     */
+    public String dayWithMostIPVisits(HashMap<String, ArrayList<String>> dayMap) {
+        String dayMostVisited = "";
+        int maxVisit = 0;
+
+        for (String day : dayMap.keySet()) {
+            int currentVisit = dayMap.get(day).size();
+
+            if (currentVisit > maxVisit) {
+                maxVisit = currentVisit;
+                dayMostVisited = day;
+            }
+        }
+
+        return dayMostVisited;
+    }
+
+    /**
+     * Find the user that visited the website the most during that day
+     *
+     * @param dayMap the HashMap that has the day as key and ArrayList of IP addresses as value
+     * @param day    the day String formatted as "MMM DD"
+     * @return an ArrayList with IP address that has accessed the site the most
+     */
+    public ArrayList<String> iPsWithMostVisitsOnDay(HashMap<String, ArrayList<String>> dayMap, String day) {
+        ArrayList<String> ipAddresses = new ArrayList<>();
+        HashMap<String, Integer> ipAddressesCount = new HashMap<>();
+        int maxCount = 0;
+
+        for (String ipAddress : dayMap.get(day)) {
+            if (!ipAddressesCount.containsKey(ipAddress)) {
+                ipAddressesCount.put(ipAddress, 1);
+            } else {
+                ipAddressesCount.put(ipAddress, ipAddressesCount.get(ipAddress) + 1);
+            }
+
+            if (ipAddressesCount.get(ipAddress) > maxCount) {
+                maxCount = ipAddressesCount.get(ipAddress);
+            }
+        }
+
+        for (String ipAddress : ipAddressesCount.keySet()) {
+            if (ipAddressesCount.get(ipAddress) == maxCount && !ipAddresses.contains(ipAddress)) {
+                ipAddresses.add(ipAddress);
+            }
+        }
+
+        return ipAddresses;
+    }
 }

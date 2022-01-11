@@ -1,4 +1,3 @@
-
 /**
  * Write a description of class Tester here.
  *
@@ -25,7 +24,7 @@ public class LogTester {
 
     public void testUniqueIP() {
         LogAnalyzer la = new LogAnalyzer();
-        la.readFile("input/UniqueIPData/short-test_log");
+        la.readFile("input/UniqueIPData/weblog2_log");
         System.out.println(la.countUniqueIPs());
     }
 
@@ -37,9 +36,9 @@ public class LogTester {
 
     public void testPrintFilterByDate() {
         LogAnalyzer la = new LogAnalyzer();
-        la.readFile("input/UniqueIPData/weblog1_log");
+        la.readFile("input/UniqueIPData/weblog2_log");
 
-        ArrayList<String> ipAddresses = la.uniqueIPVisitsOnDay("Mar 17");
+        ArrayList<String> ipAddresses = la.uniqueIPVisitsOnDay("Sep 24");
 
         for (String ipAddress : ipAddresses) {
             System.out.println(ipAddress);
@@ -50,8 +49,47 @@ public class LogTester {
 
     public void testUniqueIPsInRange() {
         LogAnalyzer la = new LogAnalyzer();
-        la.readFile("input/UniqueIPData/weblog1_log");
+        la.readFile("input/UniqueIPData/weblog2_log");
 
         System.out.println(la.countUniqueIPsInRange(200, 299));
+    }
+
+    public void testCountVisitPerIP() {
+        LogAnalyzer la = new LogAnalyzer();
+        la.readFile("input/UniqueIPData/weblog1_log");
+
+        System.out.println(la.countVisitsPerIP());
+    }
+
+    public void testMaxNumberVisitsByIP() {
+        LogAnalyzer la = new LogAnalyzer();
+        la.readFile("input/UniqueIPData/weblog2_log");
+
+        System.out.println(la.mostNumberVisitsByIP(la.countVisitsPerIP()));
+    }
+
+    public void testIpsMostVisits() {
+        LogAnalyzer la = new LogAnalyzer();
+        la.readFile("input/UniqueIPData/weblog2_log");
+
+        System.out.println(la.iPsMostVisits(la.countVisitsPerIP()));
+    }
+
+    public void testIpForDays() {
+        LogAnalyzer la = new LogAnalyzer();
+        la.readFile("input/CountingVisitsData/weblog3-short_log");
+        System.out.println(la.iPsForDays());
+    }
+
+    public void testDaysWithMostVisit() {
+        LogAnalyzer la = new LogAnalyzer();
+        la.readFile("input/UniqueIPData/weblog2_log");
+        System.out.println(la.dayWithMostIPVisits(la.iPsForDays()));
+    }
+
+    public void testIpsWithMostVisitsOnDay() {
+        LogAnalyzer la = new LogAnalyzer();
+        la.readFile("input/UniqueIPData/weblog2_log");
+        System.out.println(la.iPsWithMostVisitsOnDay(la.iPsForDays(), "Sep 29"));
     }
 }
