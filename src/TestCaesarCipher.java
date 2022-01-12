@@ -1,5 +1,3 @@
-import edu.duke.FileResource;
-
 public class TestCaesarCipher {
     /**
      * Test to break an encrypted message
@@ -11,7 +9,7 @@ public class TestCaesarCipher {
     public String breakCaesarCipher(String input) {
         int keyFound = CaesarBreaker.getKey(input);
 
-        CaesarCipher cc = new CaesarCipher(keyFound);
+        CaesarCipherOne cc = new CaesarCipherOne(keyFound);
 
         return cc.decrypt(input);
     }
@@ -19,7 +17,7 @@ public class TestCaesarCipher {
     public void simpleTests() {
         String message = "Can you imagine life WITHOUT the internet AND computers in your pocket?";
 
-        CaesarCipher cc = new CaesarCipher(15);
+        CaesarCipherOne cc = new CaesarCipherOne(15);
         String encryptedMessage = cc.encrypt(message);
         String decryptedMessage = breakCaesarCipher(encryptedMessage);
 
@@ -27,8 +25,4 @@ public class TestCaesarCipher {
         System.out.println(decryptedMessage);
     }
 
-    public static void main(String[] args) {
-        TestCaesarCipher tcc = new TestCaesarCipher();
-        tcc.simpleTests();
-    }
 }

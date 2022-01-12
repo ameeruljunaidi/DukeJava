@@ -1,5 +1,3 @@
-import edu.duke.FileResource;
-
 public class TestCaesarCipherTwo {
     /**
      * Try to break the cipher with two keys
@@ -16,8 +14,8 @@ public class TestCaesarCipherTwo {
         int firstKey = CaesarBreaker.getKey(first);
         int secondKey = CaesarBreaker.getKey(second);
 
-        CaesarCipher ccFirst = new CaesarCipher(firstKey);
-        CaesarCipher ccSecond = new CaesarCipher(secondKey);
+        CaesarCipherOne ccFirst = new CaesarCipherOne(firstKey);
+        CaesarCipherOne ccSecond = new CaesarCipherOne(secondKey);
 
         String firstDecrypted = ccFirst.decrypt(first);
         String secondDecrypted = ccSecond.decrypt(second);
@@ -47,10 +45,5 @@ public class TestCaesarCipherTwo {
 
         System.out.println(encryptedMessage);
         System.out.println(decryptedMessage);
-    }
-
-    public static void main(String[] args) {
-        TestCaesarCipherTwo tcct = new TestCaesarCipherTwo();
-        tcct.simpleTests();
     }
 }

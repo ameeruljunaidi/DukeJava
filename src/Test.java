@@ -1,6 +1,8 @@
 public class Test {
+    public static String filename = "input/VigenereTestData/titus-small.txt";
+
     public static void main(String[] args) {
-        LogTester lt = new LogTester();
-        lt.testIpsWithMostVisitsOnDay();
+        TestVigenere.testBreakForAllLangs();
     }
 }
+

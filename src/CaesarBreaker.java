@@ -65,9 +65,9 @@ public class CaesarBreaker {
         int ret;
 
         if (WordLengths.maxIndex(counts) - 4 >= 0) {
-            ret =  WordLengths.maxIndex(counts) - 4;
+            ret = WordLengths.maxIndex(counts) - 4;
         } else {
-           ret = 22 - WordLengths.maxIndex(counts);
+            ret = 22 - WordLengths.maxIndex(counts);
         }
 
         return ret;
@@ -109,10 +109,4 @@ public class CaesarBreaker {
         return ret.toString();
     }
 
-    public static void main(String[] args) {
-        FileResource fr = new FileResource("input/PracticeBreakingCaesarData/mysteryTwoKeysPractice.txt");
-        String encryptedMessage = fr.asString();
-
-        System.out.println(decryptTwoKeys(encryptedMessage));
-    }
 }

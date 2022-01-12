@@ -21,8 +21,8 @@ public class CaesarCipherTwo {
     public String encrypt(String input) {
         StringBuilder encryptedMessage = new StringBuilder(input);
 
-        CaesarCipher cc1 = new CaesarCipher(key1);
-        CaesarCipher cc2 = new CaesarCipher(key2);
+        CaesarCipherOne cc1 = new CaesarCipherOne(key1);
+        CaesarCipherOne cc2 = new CaesarCipherOne(key2);
 
         String first = cc1.encrypt(input);
         String second = cc2.encrypt(input);
@@ -41,8 +41,8 @@ public class CaesarCipherTwo {
     public String decrypt(String input) {
         StringBuilder decryptedMessage = new StringBuilder(input);
 
-        CaesarCipher cc1 = new CaesarCipher(key1);
-        CaesarCipher cc2 = new CaesarCipher(key2);
+        CaesarCipherOne cc1 = new CaesarCipherOne(key1);
+        CaesarCipherOne cc2 = new CaesarCipherOne(key2);
 
         String first = cc1.decrypt(input);
         String second = cc2.decrypt(input);
