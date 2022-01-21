@@ -100,7 +100,7 @@ public class ClosestQuakes {
     public void findClosestQuakes(String source) {
         EarthQuakeParser parser = new EarthQuakeParser();
         ArrayList<QuakeEntry> list = parser.read(source);
-        System.out.println("read data for " + list.size());
+        System.out.println("Read data for " + list.size());
 
         Location jakarta = new Location(-6.211, 106.845);
 
@@ -120,7 +120,7 @@ public class ClosestQuakes {
     public void findLargestQuakes(String source, int howMany) {
         EarthQuakeParser parser = new EarthQuakeParser();
         ArrayList<QuakeEntry> list = parser.read(source);
-        System.out.println("read data for " + list.size());
+        System.out.println("Read data for " + list.size());
 
         ArrayList<QuakeEntry> filtered = getLargest(list, howMany);
         printQuakes(filtered);

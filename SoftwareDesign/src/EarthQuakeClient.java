@@ -132,7 +132,7 @@ public class EarthQuakeClient {
         EarthQuakeParser parser = new EarthQuakeParser();
         ArrayList<QuakeEntry> list = parser.read(source);
 
-        System.out.println("read data for " + list.size() + " quakes");
+        System.out.println("Read data for " + list.size() + " quakes");
 
         ArrayList<QuakeEntry> filtered = filterByMagnitude(list, 5.0);
         for (QuakeEntry qe : filtered) {
@@ -149,7 +149,7 @@ public class EarthQuakeClient {
     public void closeToMe(String source) {
         EarthQuakeParser parser = new EarthQuakeParser();
         ArrayList<QuakeEntry> list = parser.read(source);
-        System.out.println("read data for " + list.size() + " quakes");
+        System.out.println("Read data for " + list.size() + " quakes");
 
         // This location is Durham, NC
         // Location city = new Location(35.988, -78.907);
@@ -174,7 +174,7 @@ public class EarthQuakeClient {
     public void quakesOfDepth(String source, double minDepth, double maxDepth) {
         EarthQuakeParser parser = new EarthQuakeParser();
         ArrayList<QuakeEntry> list = parser.read(source);
-        System.out.println("read data for " + list.size() + " quakes");
+        System.out.println("Read data for " + list.size() + " quakes");
 
         ArrayList<QuakeEntry> filtered = filterByDepth(list, minDepth, maxDepth);
         System.out.println("Find quakes with depth between " + minDepth + " and " + maxDepth);
@@ -193,7 +193,7 @@ public class EarthQuakeClient {
     public void quakesByPhrase(String source, String where, String phrase) {
         EarthQuakeParser parser = new EarthQuakeParser();
         ArrayList<QuakeEntry> list = parser.read(source);
-        System.out.println("read data for " + list.size() + " quakes");
+        System.out.println("Read data for " + list.size() + " quakes");
 
         ArrayList<QuakeEntry> filtered = filterByPhrase(list, where, phrase);
         System.out.println("Found " + filtered.size() + " quakes that match " + phrase + " at " + where + "\n");
