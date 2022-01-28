@@ -1,5 +1,6 @@
 public class Test {
     public static void main(String[] args) {
-        FilteringEarthquake.runQuiz();
+        DifferentSorters ds = new DifferentSorters();
+        ds.sortByLastWordInTitleThenByMagnitude();
     }
 }

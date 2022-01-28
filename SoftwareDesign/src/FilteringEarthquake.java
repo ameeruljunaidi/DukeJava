@@ -22,11 +22,7 @@ public class FilteringEarthquake {
         Filter magnitudeFilter = new MagnitudeFilter(4.0, 5.0);
         Filter depthFilter = new DepthFilter(-35000.0, -12000);
 
-        ArrayList<QuakeEntry> filteredMagnitude = EarthQuakeClient2.filter(list, magnitudeFilter);
-        ArrayList<QuakeEntry> filteredDepth = EarthQuakeClient2.filter(filteredMagnitude, depthFilter);
-
-        System.out.println(filteredDepth.size() + " quake found.");
-        System.out.println("Filters used: " + magnitudeFilter.getName() + ", " + depthFilter.getName());
+        twoFilters(magnitudeFilter, depthFilter);
     }
 
     /**
@@ -36,11 +32,15 @@ public class FilteringEarthquake {
      */
     public static void run2() {
         System.out.println("Read data for " + list.size() + " quakes");
-        Location japan = new Location(35.42, 139.43);
 
+        Location japan = new Location(35.42, 139.43);
         Filter distanceFilter = new DistanceFilter(japan, 10000.0);
         Filter phraseFilter = new PhraseFilter("end", "Japan");
 
+        twoFilters(distanceFilter, phraseFilter);
+    }
+
+    private static void twoFilters(Filter distanceFilter, Filter phraseFilter) {
         ArrayList<QuakeEntry> filteredDistance = EarthQuakeClient2.filter(list, distanceFilter);
         ArrayList<QuakeEntry> filteredPhrase = EarthQuakeClient2.filter(filteredDistance, phraseFilter);
 
