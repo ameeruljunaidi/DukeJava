@@ -1,63 +1,39 @@
+
 /**
  * Write a description of class MarkovRunner here.
  *
- * @author Duke Software
- * @version 1.0
+ * @author (your name)
+ * @version (a version number or a date)
  */
 
 import edu.duke.*;
 
 public class MarkovRunner {
-    public void runMarkovZero() {
-        FileResource fr = new FileResource("data/MarkovData/confucius.txt");
-        String st = fr.asString();
-        st = st.replace('\n', ' ');
-        MarkovZero markov = new MarkovZero();
-        markov.setRandom(88);
-        markov.setTraining(st);
+    public void runModel(IMarkovModel markov, String text, int size) {
+        markov.setTraining(text);
+        System.out.println("running with " + markov);
         for (int k = 0; k < 3; k++) {
-            String text = markov.getRandomText(500);
-            printOut(text);
+            String st = markov.getRandomText(size);
+            printOut(st);
         }
     }
 
-    public void runMarkovOne() {
-        FileResource fr = new FileResource("data/MarkovData/confucius.txt");
-        String st = fr.asString();
-        st = st.replace('\n', ' ');
-        MarkovOne markov = new MarkovOne();
-        markov.setRandom(273);
-        markov.setTraining(st);
-        for (int k = 0; k < 1; k++) {
-            String text = markov.getRandomText(500);
-            printOut(text);
+    public void runModel(IMarkovModel markov, String text, int size, int seed) {
+        markov.setTraining(text);
+        markov.setRandom(seed);
+        System.out.println("running with " + markov);
+        for (int k = 0; k < 3; k++) {
+            String st = markov.getRandomText(size);
+            printOut(st);
         }
     }
 
-    public void runMarkovFour() {
+    public void runMarkov() {
         FileResource fr = new FileResource("data/MarkovData/confucius.txt");
         String st = fr.asString();
         st = st.replace('\n', ' ');
-        MarkovFour markov = new MarkovFour();
-        markov.setRandom(371);
-        markov.setTraining(st);
-        for (int k = 0; k < 1; k++) {
-            String text = markov.getRandomText(500);
-            printOut(text);
-        }
-    }
-
-    public void runMarkovModel() {
-        FileResource fr = new FileResource("data/MarkovData/confucius.txt");
-        String st = fr.asString();
-        st = st.replace('\n', ' ');
-        MarkovModel markov = new MarkovModel(8);
-        markov.setRandom(365);
-        markov.setTraining(st);
-        for (int k = 0; k < 1; k++) {
-            String text = markov.getRandomText(500);
-            printOut(text);
-        }
+        MarkovWord markovWord = new MarkovWord(3);
+        runModel(markovWord, st, 1, 643);
     }
 
     private void printOut(String s) {
