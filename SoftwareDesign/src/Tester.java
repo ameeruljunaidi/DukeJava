@@ -13,11 +13,11 @@ public class Tester {
 
     public void testGetFollowsWithFile() {
         MarkovOne mo = new MarkovOne();
-        FileResource fr = new FileResource("data/MarkovData/melville.txt");
+        FileResource fr = new FileResource("data/MarkovData/confucius.txt");
         String training = fr.asString();
         training = training.replace('\n', ' ');
         mo.setTraining(training);
-        ArrayList<String> follows = mo.getFollows("th");
+        ArrayList<String> follows = mo.getFollows("he");
         System.out.println(follows.size());
         System.out.println(follows);
     }

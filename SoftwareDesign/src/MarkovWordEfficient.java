@@ -1,19 +1,23 @@
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Random;
 
-public class MarkovWord implements IMarkovModel {
+public class MarkovWordEfficient implements IMarkovModel {
     private String[] myText;
     private Random myRandom;
     private final int myOrder;
+    private final HashMap<WordGram, ArrayList<String>> wordMap;
 
     /**
      * Initialize the MarkovWord object with the order specified
      *
      * @param order the order to initialize the MarkovWord object with
      */
-    public MarkovWord(int order) {
+    public MarkovWordEfficient(int order) {
         this.myRandom = new Random();
         this.myOrder = order;
+        this.wordMap = new HashMap<>();
     }
 
     /**
@@ -24,6 +28,8 @@ public class MarkovWord implements IMarkovModel {
      */
     @Override public void setTraining(String text) {
         this.myText = text.split("\\s+");
+        buildMap();
+        printHashMapInfo();
     }
 
     /**
@@ -37,6 +43,29 @@ public class MarkovWord implements IMarkovModel {
 
     public String toString() {
         return "Markov Order of " + this.myOrder;
+    }
+
+    private void buildMap() {
+
+        // Loop through the myTest Array to get a WordGram for length myOrder and generate follows ArrayList for each
+        // WordGram and then check if it is already in the wordMap
+        // If it already is in the wordMap, just append the new word to the back of the ArrayList at index WordGram
+        // If it is not in the wordMap, create new key and add the ArrayList to it
+
+        for (int index = 0; index <= this.myText.length - this.myOrder; ++index) {
+            WordGram kGram = new WordGram(this.myText, index, this.myOrder);
+            String toAdd = ((index + this.myOrder) < this.myText.length) ? myText[index + this.myOrder] : null;
+
+            if (!wordMap.containsKey(kGram)) {
+                ArrayList<String> follows = new ArrayList<>();
+                if (toAdd != null) follows.add(myText[index + this.myOrder]);
+                wordMap.put(kGram, follows);
+            } else {
+                ArrayList<String> currentFollow = wordMap.get(kGram);
+                if (toAdd != null) currentFollow.add(myText[index + this.myOrder]);
+                wordMap.put(kGram, currentFollow);
+            }
+        }
     }
 
     /**
@@ -64,7 +93,7 @@ public class MarkovWord implements IMarkovModel {
             // Then update the WordGram object to add the latest word added
 
             ArrayList<String> follows = getFollows(wg);
-            if (follows.isEmpty()) break;
+            if (follows == null || follows.isEmpty()) break;
             String next = follows.get(myRandom.nextInt(follows.size()));
             sb.append(next).append(" ");
             wg = wg.shiftAdd(next);
@@ -117,30 +146,20 @@ public class MarkovWord implements IMarkovModel {
      * in the training text
      */
     public ArrayList<String> getFollows(WordGram kGram) {
-        ArrayList<String> ret = new ArrayList<>();
-
-        // Find the index of the first occurrence of list of words, if there are none, then break out of the loop
-        // If there is an index referring to the first occurrence of that list of words in myText, get the next word
-        // after that list of words and add it to the follows arrays
-        // Run this loop up until the length of myText - myOrder (since we're not looking past the end of the myText
-        // array minus the order that the class is currently in)
-
-        int index = indexOf(myText, kGram, 0);
-        for (int i = 0; i < this.myText.length - this.myOrder; ++i) {
-            if (index == -1) break;
-
-            // Get the string to add, only consider if the index found is less than the index itself plus whatever
-            // order the class is currently in
-            // This is because we want to get the proceeding word after that, but if it is at the end of the list,
-            // we just want to break out of the loop
-
-            String toAdd = (index < this.myText.length + this.myOrder) ? myText[index + this.myOrder] : null;
-            if (toAdd != null) ret.add(myText[index + this.myOrder]);
-
-            index = indexOf(myText, kGram, index + 1);
-        }
-
-        return ret;
+        return wordMap.get(kGram);
     }
 
+    public void printHashMapInfo() {
+        // System.out.println(wordMap);
+        System.out.println("Keys in HashMap: " + wordMap.size());
+
+        int largest = 0;
+        for (WordGram key : wordMap.keySet()) if (wordMap.get(key).size() > largest) largest = wordMap.get(key).size();
+        System.out.println("Largest WordGram size: " + largest);
+
+        System.out.println("Largest keys: ");
+        for (WordGram key : wordMap.keySet()) {
+            if (wordMap.get(key).size() == largest) System.out.println(key + " : " + wordMap.get(key));
+        }
+    }
 }

@@ -81,10 +81,10 @@ public class EfficientMarkovModel extends AbstractMarkovModel {
     }
 
     public void printHashMapInfo() {
-        System.out.println("All keys and values are:");
-        for (String key : followsMap.keySet()) {
-            System.out.print(key + " " + followsMap.get(key) + "\n");
-        }
+        // System.out.println("All keys and values are:");
+        // for (String key : followsMap.keySet()) {
+        //     System.out.print(key + " " + followsMap.get(key) + "\n");
+        // }
 
         System.out.println("Number of keys in HashMap: " + followsMap.size());
 
