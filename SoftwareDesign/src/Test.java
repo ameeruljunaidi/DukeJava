@@ -1,6 +1,12 @@
 public class Test {
     public static void main(String[] args) {
-        DifferentSorters ds = new DifferentSorters();
-        ds.sortByLastWordInTitleThenByMagnitude();
+        // Tester t = new Tester();
+        // t.testGetFollowsWithFile();
+
+        // MarkovRunner mr = new MarkovRunner();
+        // mr.runMarkovModel();
+
+        MarkovRunnerWithInterface mri = new MarkovRunnerWithInterface();
+        mri.testHashMap();
     }
 }
