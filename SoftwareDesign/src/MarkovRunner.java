@@ -32,8 +32,69 @@ public class MarkovRunner {
         FileResource fr = new FileResource("data/MarkovData/confucius.txt");
         String st = fr.asString();
         st = st.replace('\n', ' ');
-        MarkovWord markovWord = new MarkovWord(3);
-        runModel(markovWord, st, 1, 643);
+        MarkovWordEfficient markovWord = new MarkovWordEfficient(2);
+        runModel(markovWord, st, 10, 65);
+    }
+
+
+    public void runMarkovZero() {
+        FileResource fr = new FileResource("data/MarkovData/confucius.txt");
+        String st = fr.asString();
+        st = st.replace('\n', ' ');
+        MarkovZero markov = new MarkovZero();
+        markov.setRandom(1024);
+        markov.setTraining(st);
+        for (int k = 0; k < 3; k++) {
+            String text = markov.getRandomText(500);
+            printOut(text);
+        }
+    }
+
+    public void runMarkovOne() {
+        FileResource fr = new FileResource("data/MarkovData/romeo.txt");
+        String st = fr.asString();
+        st = st.replace('\n', ' ');
+        MarkovOne markov = new MarkovOne();
+        markov.setRandom(365);
+        markov.setTraining(st);
+        for (int k = 0; k < 1; k++) {
+            String text = markov.getRandomText(500);
+            printOut(text);
+        }
+    }
+
+    public void runMarkovFour() {
+        FileResource fr = new FileResource("data/MarkovData/romeo.txt");
+        String st = fr.asString();
+        st = st.replace('\n', ' ');
+        MarkovFour markov = new MarkovFour();
+        markov.setRandom(715);
+        markov.setTraining(st);
+        for (int k = 0; k < 1; k++) {
+            String text = markov.getRandomText(500);
+            printOut(text);
+        }
+    }
+
+    public void runMarkovModel() {
+        FileResource fr = new FileResource("data/MarkovData/romeo.txt");
+        String st = fr.asString();
+        st = st.replace('\n', ' ');
+        MarkovModel markov = new MarkovModel(7);
+        markov.setRandom(953);
+        markov.setTraining(st);
+        for (int k = 0; k < 1; k++) {
+            String text = markov.getRandomText(500);
+            printOut(text);
+        }
+    }
+
+    public void testHashMapMarkovModel() {
+        FileResource fr = new FileResource("data/MarkovData/confucius.txt");
+        String st = fr.asString();
+        st = st.replace('\n', ' ');
+        EfficientMarkovModel mModel = new EfficientMarkovModel(6);
+        runModel(mModel, st, 10, 792);
     }
 
     private void printOut(String s) {
@@ -51,4 +112,35 @@ public class MarkovRunner {
         System.out.println("\n----------------------------------");
     }
 
+    public void testHashMap() {
+        String st = "this is a test yes this is really a test yes a test this is wow";
+        st = st.replace('\n', ' ');
+        MarkovWordEfficient markovWord = new MarkovWordEfficient(2);
+        runModel(markovWord, st, 50, 42);
+    }
+
+    public void compareMethods() {
+        FileResource fr = new FileResource("data/MarkovData/hawthorne.txt");
+        String st = fr.asString();
+        st = st.replace('\n', ' ');
+
+        long begin, end, elapsedTime;
+        double elapsedTimeInSecond;
+
+        begin = System.nanoTime();
+        MarkovWordEfficient markovWordEfficient = new MarkovWordEfficient(2);
+        runModel(markovWordEfficient, st, 100, 42);
+        end = System.nanoTime();
+        elapsedTime = end - begin;
+        elapsedTimeInSecond = (double) elapsedTime / 1_000_000_000;
+        System.out.println("Completed in: " + elapsedTimeInSecond + " seconds");
+
+        begin = System.nanoTime();
+        MarkovWord markovWord = new MarkovWord(2);
+        runModel(markovWord, st, 100, 42);
+        end = System.nanoTime();
+        elapsedTime = end - begin;
+        elapsedTimeInSecond = (double) elapsedTime / 1_000_000_000;
+        System.out.println("Completed in: " + elapsedTimeInSecond + " seconds");
+    }
 }

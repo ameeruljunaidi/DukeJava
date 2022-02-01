@@ -4,7 +4,7 @@ import java.util.Random;
 public class MarkovWord implements IMarkovModel {
     private String[] myText;
     private Random myRandom;
-    private int myOrder;
+    private final int myOrder;
 
     /**
      * Initialize the MarkovWord object with the order specified
@@ -35,6 +35,10 @@ public class MarkovWord implements IMarkovModel {
         myRandom = new Random(seed);
     }
 
+    public String toString() {
+        return "Markov Order of " + this.myOrder;
+    }
+
     /**
      * Generates each word by randomly choosing a word from the training text that follows the current word(s) in the
      * training text. Might need to use shiftAdd.
@@ -49,8 +53,7 @@ public class MarkovWord implements IMarkovModel {
         // Need to create a new WordGram object at that initial found index
         // Then append the words in the WordGram to the StringBuilder
 
-        int index = myRandom.nextInt(myText.length - this.myOrder);
-        WordGram wg = new WordGram(this.myText, index, this.myOrder);
+        WordGram wg = new WordGram(this.myText, myRandom.nextInt(myText.length - this.myOrder), this.myOrder);
         for (int i = 0; i < wg.length(); ++i) sb.append(wg.wordAt(i)).append(" ");
 
         for (int k = 0; k < this.myText.length - this.myOrder; ++k) {
@@ -61,9 +64,8 @@ public class MarkovWord implements IMarkovModel {
             // Then update the WordGram object to add the latest word added
 
             ArrayList<String> follows = getFollows(wg);
-            if (follows.size() == 0) break;
-            index = myRandom.nextInt(follows.size());
-            String next = follows.get(index);
+            if (follows.isEmpty()) break;
+            String next = follows.get(myRandom.nextInt(follows.size()));
             sb.append(next).append(" ");
             wg = wg.shiftAdd(next);
         }
@@ -87,18 +89,18 @@ public class MarkovWord implements IMarkovModel {
         // By definition, if the copy WordGram is to be the same as the target WordGram, the length needs to be the same
         // So the copy WordGram will be initialized with the same length as the target WordGram
 
-        assert this.myOrder == target.length();
-
         for (int i = start; i < this.myText.length - this.myOrder; ++i) {
 
             WordGram copy = new WordGram(words, i, this.myOrder);
 
             // Check if this copy of the WordGram is the same as the target WordGram
-            // Need to use the equal method that was created in WordGram class to ensure that we are comparing the right
+            // Need to use the equal method that was created in WordGram class to ensure that we are comparing
+            // the right
             // thing and not looking if there are both the same object
             // Need to loop through the myTest Array in this class to find the index of the first instance where the
             // list of words show us
-            // To get the index of the first word in the copy WordGram that is equal to the target WordGram, return the
+            // To get the index of the first word in the copy WordGram that is equal to the target WordGram,
+            // return the
             // int start
 
             if (copy.equals(target)) return i;
@@ -134,11 +136,11 @@ public class MarkovWord implements IMarkovModel {
 
             String toAdd = (index < this.myText.length + this.myOrder) ? myText[index + this.myOrder] : null;
             if (toAdd != null) ret.add(myText[index + this.myOrder]);
-            else break;
 
             index = indexOf(myText, kGram, index + 1);
         }
 
         return ret;
     }
+
 }

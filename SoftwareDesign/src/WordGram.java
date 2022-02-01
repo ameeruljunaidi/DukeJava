@@ -4,7 +4,7 @@
  */
 public class WordGram {
     private final String[] myWords; // Store the words in order, one word per slot
-    private int myHash;             // Use to be able to use WordGrams as a key with a HashMap
+    private final int myHash;             // Use to be able to use WordGrams as a key with a HashMap
 
     /**
      * The constructor copies the size number of words from source starting at the position start into a new WordGram.
@@ -15,6 +15,7 @@ public class WordGram {
      */
     public WordGram(String[] source, int start, int size) {
         this.myWords = new String[size];
+        this.myHash = hashCode();
         System.arraycopy(source, start, myWords, 0, size);
     }
 
@@ -58,6 +59,7 @@ public class WordGram {
      * @return true if two WordGrams are equal and false otherwise
      */
     public boolean equals(Object o) {
+        if (o == null) return false;
         WordGram other = (WordGram) o;
 
         // There are two main checks for equal WordGrams:
@@ -68,6 +70,10 @@ public class WordGram {
         for (int i = 0; i < this.length(); i++) if (!this.wordAt(i).equals(other.wordAt(i))) return false;
 
         return true;
+    }
+
+    public int hashCode() {
+        return this.toString().hashCode();
     }
 
     /**
