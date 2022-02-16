@@ -3,12 +3,12 @@ import java.util.List;
 
 public class SecondRatings {
     private final List<Movie> myMovies;
-    private final List<Rater> myRaters;
+    private final List<PlainRater> myPlainRaters;
 
     public SecondRatings(String moviefile, String ratingsfile) {
         FirstRatings fr = new FirstRatings();
         this.myMovies = fr.loadMovies(moviefile);
-        this.myRaters = fr.loadRaters(ratingsfile);
+        this.myPlainRaters = fr.loadRaters(ratingsfile);
     }
 
     public SecondRatings() {
@@ -21,7 +21,7 @@ public class SecondRatings {
     }
 
     public int getRaterSize() {
-        return this.myRaters.size();
+        return this.myPlainRaters.size();
     }
 
     public String getTitle(String movieId) {
@@ -43,10 +43,10 @@ public class SecondRatings {
         int ratingCount = 0;
         double average = 0;
 
-        for (Rater rater : this.myRaters) {
-            if (rater.hasRating(movieId)) {
+        for (PlainRater plainRater : this.myPlainRaters) {
+            if (plainRater.hasRating(movieId)) {
                 ratingCount++;
-                average += rater.getRating(movieId);
+                average += plainRater.getRating(movieId);
             }
         }
 
