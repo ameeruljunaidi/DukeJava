@@ -38,22 +38,22 @@ public class FirstRatings {
      * @param filename the file that contains all the raters
      * @return a list of all the raters
      */
-    public List<PlainRater> loadRaters(String filename) {
-        List<PlainRater> ret = new ArrayList<>();
+    public List<Rater> loadRaters(String filename) {
+        List<Rater> ret = new ArrayList<>();
         FileResource fr = new FileResource(filename);
         CSVParser parser = fr.getCSVParser();
         for (CSVRecord r : parser) {
-            PlainRater plainRater = new PlainRater(r.get("rater_id"));
+            Rater rater = new EfficientRater(r.get("rater_id")); // This is where to change (plain / efficient)
 
             boolean isDuplicate = false;
-            for (PlainRater returnPlainRater : ret)
-                if (plainRater.equals(returnPlainRater)) {
-                    plainRater = returnPlainRater;
+            for (Rater returnRater : ret)
+                if (rater.equals(returnRater)) {
+                    rater = returnRater;
                     isDuplicate = true;
                 }
 
-            plainRater.addRating(r.get("movie_id"), Double.parseDouble(r.get("rating")));
-            if (!isDuplicate) ret.add(plainRater);
+            rater.addRating(r.get("movie_id"), Double.parseDouble(r.get("rating")));
+            if (!isDuplicate) ret.add(rater);
         }
 
         return ret;
@@ -103,37 +103,37 @@ public class FirstRatings {
     }
 
     public void testLoadRaters(String filename) {
-        List<PlainRater> plainRaters = loadRaters(filename);
+        List<Rater> raters = loadRaters(filename);
 
         // Print the total number of raters
-        System.out.println("Total number of raters: " + plainRaters.size());
+        System.out.println("Total number of raters: " + raters.size());
 
         // For each rater, print the rater's ID and the number of ratings they did on one line
-        for (PlainRater plainRater : plainRaters) {
-            System.out.print("Current rater ID is: " + plainRater.getID());
-            System.out.print(". Number of ratings done: " + plainRater.getMoviesRated().size() + "\n");
-            System.out.println(plainRater);
+        for (Rater rater : raters) {
+            System.out.print("Current rater ID is: " + rater.getID());
+            System.out.print(". Number of ratings done: " + rater.getMoviesRated().size() + "\n");
+            System.out.println(rater);
         }
 
         // Find max number of ratings by any rater
         int maxRatingCount = 0;
-        for (PlainRater plainRater : plainRaters) {
-            int ratingCount = plainRater.getMoviesRated().size();
+        for (Rater rater : raters) {
+            int ratingCount = rater.getMoviesRated().size();
             if (ratingCount > maxRatingCount) maxRatingCount = ratingCount;
         }
 
         // Which rater has this max count?
-        List<PlainRater> highestPlainRaters = new ArrayList<>();
-        for (PlainRater plainRater : plainRaters)
-            if (plainRater.getMoviesRated().size() == maxRatingCount) highestPlainRaters.add(plainRater);
+        List<Rater> highestRater = new ArrayList<>();
+        for (Rater rater : raters)
+            if (rater.getMoviesRated().size() == maxRatingCount) highestRater.add(rater);
         System.out.print("The most frequent raters with " + maxRatingCount + " ratings is are rater IDs: ");
-        for (PlainRater plainRater : highestPlainRaters) System.out.print(plainRater.getID());
+        for (Rater rater : highestRater) System.out.print(rater.getID());
         System.out.println();
 
         // Find the number of ratings a particular movie has
         HashMap<String, Integer> movieRatingCount = new HashMap<>();
-        for (PlainRater plainRater : plainRaters) {
-            List<String> movies = plainRater.getMoviesRated();
+        for (Rater rater : raters) {
+            List<String> movies = rater.getMoviesRated();
             for (String movie : movies) {
                 if (!movieRatingCount.containsKey(movie)) movieRatingCount.put(movie, 1);
                 else movieRatingCount.put(movie, movieRatingCount.get(movie) + 1);

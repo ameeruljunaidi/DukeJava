@@ -1,11 +1,11 @@
 // An immutable passive data object (PDO) to represent the rating data
 public class Rating implements Comparable<Rating> {
-    private String movieId;
-    private double movieRating;
+    private final String movieId;
+    private final double movieRating;
 
-    public Rating(String anItem, double aValue) {
-        movieId = anItem;
-        movieRating = aValue;
+    public Rating(String movieId, double movieRating) {
+        this.movieId = movieId;
+        this.movieRating = movieRating;
     }
 
     // Returns item being rated
@@ -24,9 +24,6 @@ public class Rating implements Comparable<Rating> {
     }
 
     public int compareTo(Rating other) {
-        if (movieRating < other.movieRating) return -1;
-        if (movieRating > other.movieRating) return 1;
-
-        return 0;
+        return Double.compare(movieRating, other.movieRating);
     }
 }

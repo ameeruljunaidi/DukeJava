@@ -1,55 +1,66 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class EfficientRater implements Rater {
-    private String myID;
-    private ArrayList<Rating> myRatings;
+    private final String myID;
+    private final HashMap<String, Rating> myRatings;
 
     public EfficientRater(String id) {
         myID = id;
-        myRatings = new ArrayList<Rating>();
-    }
-
-    public boolean equals(Rater other) {
-        return this.myID.equals(other.getID());
-    }
-
-    public void addRating(String item, double rating) {
-        myRatings.add(new Rating(item, rating));
-    }
-
-    public boolean hasRating(String movieId) {
-        for (int k = 0; k < myRatings.size(); k++) {
-            if (myRatings.get(k).getMovieId().equals(movieId)) {
-                return true;
-            }
-        }
-
-        return false;
+        myRatings = new HashMap<>();
     }
 
     public String getID() {
         return myID;
     }
 
+    /**
+     * Get the rating of a movie given its movie id
+     *
+     * @param movieId the movie id
+     * @return the rating of the movie if found, -1 otherwise
+     */
     public double getRating(String movieId) {
-        for (int k = 0; k < myRatings.size(); k++) {
-            if (myRatings.get(k).getMovieId().equals(movieId)) {
-                return myRatings.get(k).getMovieRating();
-            }
-        }
+        if (this.myRatings.containsKey(movieId)) return this.myRatings.get(movieId).getMovieRating();
+        else return -1;
+    }
 
-        return -1;
+    public boolean equals(Rater other) {
+        return this.myID.equals(other.getID());
     }
 
     public int numRatings() {
         return myRatings.size();
     }
 
+    /**
+     * Add a rating to the rater
+     *
+     * @param movieId     the id of the movie
+     * @param movieRating the rating of the movie
+     */
+    public void addRating(String movieId, double movieRating) {
+        myRatings.put(movieId, new Rating(movieId, movieRating));
+    }
+
+    /**
+     * Check if rater has a rating for any given movieId
+     *
+     * @param movieId the movie id
+     * @return true if rater contains the movie id, false otherwise
+     */
+    public boolean hasRating(String movieId) {
+        return this.myRatings.containsKey(movieId);
+    }
+
+    /**
+     * Get the list of movie ids that has been rated
+     *
+     * @return the ArrayList of movie ids that has been rated
+     */
     public ArrayList<String> getMoviesRated() {
         ArrayList<String> list = new ArrayList<>();
-        for (int k = 0; k < myRatings.size(); k++) {
-            list.add(myRatings.get(k).getMovieId());
-        }
+        for (String movieId : this.myRatings.keySet()) list.add(this.myRatings.get(movieId).getMovieId());
 
         return list;
     }
@@ -57,7 +68,9 @@ public class EfficientRater implements Rater {
     public String toString() {
         StringBuilder toString = new StringBuilder();
         toString.append("Rater ID: ").append(this.myID).append(", Ratings: ");
-        for (Rating rating : this.myRatings) toString.append(" ").append(rating).append(" ");
+        for (String movieId : this.myRatings.keySet()) {
+            toString.append(" ").append(this.myRatings.get(movieId)).append(" ");
+        }
         return toString.toString();
     }
 }
