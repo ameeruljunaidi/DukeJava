@@ -66,7 +66,7 @@ public class SecondRatings {
 
         for (Movie movie : this.myMovies) {
             Rating addRating = new Rating(movie.getID(), getAverageByID(movie.getID(), minimalRaters));
-            if (addRating.getMovieRating() != 0.0) averageRatings.add(addRating);
+            if (addRating.getValue() != 0.0) averageRatings.add(addRating);
         }
 
         return averageRatings;

@@ -21,7 +21,7 @@ public class EfficientRater implements Rater {
      * @return the rating of the movie if found, -1 otherwise
      */
     public double getRating(String movieId) {
-        if (this.myRatings.containsKey(movieId)) return this.myRatings.get(movieId).getMovieRating();
+        if (this.myRatings.containsKey(movieId)) return this.myRatings.get(movieId).getValue();
         else return -1;
     }
 
@@ -60,7 +60,7 @@ public class EfficientRater implements Rater {
      */
     public ArrayList<String> getMoviesRated() {
         ArrayList<String> list = new ArrayList<>();
-        for (String movieId : this.myRatings.keySet()) list.add(this.myRatings.get(movieId).getMovieId());
+        for (String movieId : this.myRatings.keySet()) list.add(this.myRatings.get(movieId).getItem());
 
         return list;
     }

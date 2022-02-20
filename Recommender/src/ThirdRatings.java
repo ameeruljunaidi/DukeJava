@@ -52,7 +52,7 @@ public class ThirdRatings {
 
         for (String movie : movies) {
             Rating addRating = new Rating(movie, getAverageByID(movie, minimalRaters));
-            if (addRating.getMovieRating() != 0.0) averageRatings.add(addRating);
+            if (addRating.getValue() != 0.0) averageRatings.add(addRating);
         }
 
         return averageRatings;
@@ -76,7 +76,7 @@ public class ThirdRatings {
 
         for (String movieId : movieIds) {
             Rating addRating = new Rating(movieId, getAverageByID(movieId, minimalRaters));
-            if (addRating.getMovieRating() != 0.0) averageRatings.add(addRating);
+            if (addRating.getValue() != 0.0) averageRatings.add(addRating);
         }
 
         return averageRatings;

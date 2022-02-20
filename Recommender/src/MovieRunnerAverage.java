@@ -15,7 +15,7 @@ public class MovieRunnerAverage {
         NumberFormat formatter = new DecimalFormat("#0.00");
         for (Rating rating : ratings) {
             System.out.println(
-                    formatter.format(rating.getMovieRating()) + " " + MovieDatabase.getTitle(rating.getMovieId()));
+                    formatter.format(rating.getValue()) + " " + MovieDatabase.getTitle(rating.getItem()));
         }
         System.out.println(ratings.size() + " movies has " + threshold + " or more ratings.");
 
@@ -31,8 +31,8 @@ public class MovieRunnerAverage {
         String movieTitle = "Moneyball";
         List<Rating> ratings = sr.getAverageRatings(0);
         for (Rating rating : ratings) {
-            if (rating.getMovieId().equals(sr.getID(movieTitle))) {
-                System.out.println("Average rating for " + movieTitle + " is " + rating.getMovieRating());
+            if (rating.getItem().equals(sr.getID(movieTitle))) {
+                System.out.println("Average rating for " + movieTitle + " is " + rating.getValue());
             }
         }
     }

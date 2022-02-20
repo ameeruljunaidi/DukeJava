@@ -1,11 +1,10 @@
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class MovieRunWithFilters {
-    public void printAverageRatings(String moviefile, String ratingfile) {
+public class MovieRunnerWithFilters {
+    public void printAverageRatings(String moviefile, String ratingfile, int threshold) {
         MovieDatabase.initialize(moviefile);
         ThirdRatings sr = new ThirdRatings(ratingfile);
 
@@ -18,14 +17,13 @@ public class MovieRunWithFilters {
 
         // Print list of movies and their average ratings, sorted by averages
         // Per line: ratings (lowest to highest), title
-        int threshold = 35;
         List<Rating> ratings = sr.getAverageRatings(threshold);
         Collections.sort(ratings);
         System.out.println(ratings.size() + " movies has " + threshold + " or more ratings.");
         NumberFormat formatter = new DecimalFormat("#0.00");
         for (Rating rating : ratings) {
             System.out.println(
-                    formatter.format(rating.getMovieRating()) + " " + MovieDatabase.getTitle(rating.getMovieId()));
+                    formatter.format(rating.getValue()) + " " + MovieDatabase.getTitle(rating.getItem()));
         }
 
     }
@@ -49,7 +47,7 @@ public class MovieRunWithFilters {
         NumberFormat formatter = new DecimalFormat("#0.00");
         for (Rating rating : ratings) {
             System.out.println(
-                    formatter.format(rating.getMovieRating()) + " " + MovieDatabase.getTitle(rating.getMovieId()));
+                    formatter.format(rating.getValue()) + " " + MovieDatabase.getTitle(rating.getItem()));
         }
     }
 
@@ -71,9 +69,9 @@ public class MovieRunWithFilters {
         System.out.println(ratings.size() + " movies has " + threshold + " or more ratings.");
         NumberFormat formatter = new DecimalFormat("#0.00");
         for (Rating rating : ratings) {
-            System.out.print(formatter.format(rating.getMovieRating()) + " ");
-            System.out.println(MovieDatabase.getTitle(rating.getMovieId()));
-            System.out.println("\t" + MovieDatabase.getGenres(rating.getMovieId()));
+            System.out.print(formatter.format(rating.getValue()) + " ");
+            System.out.println(MovieDatabase.getTitle(rating.getItem()));
+            System.out.println("\t" + MovieDatabase.getGenres(rating.getItem()));
         }
     }
 
@@ -95,8 +93,8 @@ public class MovieRunWithFilters {
         System.out.println(ratings.size() + " movies has " + threshold + " or more ratings.");
         NumberFormat formatter = new DecimalFormat("#0.00");
         for (Rating rating : ratings) {
-            System.out.print(formatter.format(rating.getMovieRating()) + " ");
-            System.out.println(MovieDatabase.getTitle(rating.getMovieId()));
+            System.out.print(formatter.format(rating.getValue()) + " ");
+            System.out.println(MovieDatabase.getTitle(rating.getItem()));
         }
     }
 
@@ -118,9 +116,9 @@ public class MovieRunWithFilters {
         System.out.println(ratings.size() + " movies has " + threshold + " or more ratings.");
         NumberFormat formatter = new DecimalFormat("#0.00");
         for (Rating rating : ratings) {
-            System.out.print(formatter.format(rating.getMovieRating()) + " ");
-            System.out.println(MovieDatabase.getTitle(rating.getMovieId()));
-            System.out.println("\t" + MovieDatabase.getDirector(rating.getMovieId()));
+            System.out.print(formatter.format(rating.getValue()) + " ");
+            System.out.println(MovieDatabase.getTitle(rating.getItem()));
+            System.out.println("\t" + MovieDatabase.getDirector(rating.getItem()));
         }
     }
 
@@ -149,10 +147,10 @@ public class MovieRunWithFilters {
 
         NumberFormat formatter = new DecimalFormat("#0.00");
         for (Rating rating : ratings) {
-            System.out.print(formatter.format(rating.getMovieRating()) + " ");
-            System.out.print(MovieDatabase.getYear(rating.getMovieId()) + " ");
-            System.out.println(MovieDatabase.getTitle(rating.getMovieId()));
-            System.out.println("\t" + MovieDatabase.getGenres(rating.getMovieId()));
+            System.out.print(formatter.format(rating.getValue()) + " ");
+            System.out.print(MovieDatabase.getYear(rating.getItem()) + " ");
+            System.out.println(MovieDatabase.getTitle(rating.getItem()));
+            System.out.println("\t" + MovieDatabase.getGenres(rating.getItem()));
         }
     }
 
@@ -181,10 +179,10 @@ public class MovieRunWithFilters {
 
         NumberFormat formatter = new DecimalFormat("#0.00");
         for (Rating rating : ratings) {
-            System.out.print(formatter.format(rating.getMovieRating()) + " ");
-            System.out.print("Time: " + MovieDatabase.getMinutes(rating.getMovieId()) + " ");
-            System.out.println(MovieDatabase.getTitle(rating.getMovieId()));
-            System.out.println("\t" + MovieDatabase.getDirector(rating.getMovieId()));
+            System.out.print(formatter.format(rating.getValue()) + " ");
+            System.out.print("Time: " + MovieDatabase.getMinutes(rating.getItem()) + " ");
+            System.out.println(MovieDatabase.getTitle(rating.getItem()));
+            System.out.println("\t" + MovieDatabase.getDirector(rating.getItem()));
         }
     }
 }

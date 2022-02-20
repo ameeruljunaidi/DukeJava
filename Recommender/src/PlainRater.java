@@ -28,8 +28,8 @@ public class PlainRater implements Rater {
      */
     public double getRating(String movieId) {
         for (Rating myRating : myRatings) {
-            if (myRating.getMovieId().equals(movieId)) {
-                return myRating.getMovieRating();
+            if (myRating.getItem().equals(movieId)) {
+                return myRating.getValue();
             }
         }
 
@@ -62,7 +62,7 @@ public class PlainRater implements Rater {
      */
     public boolean hasRating(String movieId) {
         for (Rating myRating : myRatings) {
-            if (myRating.getMovieId().equals(movieId)) {
+            if (myRating.getItem().equals(movieId)) {
                 return true;
             }
         }
@@ -78,7 +78,7 @@ public class PlainRater implements Rater {
     public ArrayList<String> getMoviesRated() {
         ArrayList<String> list = new ArrayList<>();
         for (Rating myRating : myRatings) {
-            list.add(myRating.getMovieId());
+            list.add(myRating.getItem());
         }
 
         return list;
