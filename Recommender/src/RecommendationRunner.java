@@ -9,21 +9,24 @@ public class RecommendationRunner implements Recommender {
 
         // Get all the movie ids and random add it to the selectedMovies list
         selectedMovieIds = new ArrayList<>();
-        List<String> allMovieIds = MovieDatabase.filterBy(new YearAfterFilter(2000));
+        AllFilters af = new AllFilters();
+        af.addFilter(new YearAfterFilter(2010));
+        String[] countries = {"UK", "Canada", "USA"};
+        af.addFilter(new CountryFilter(countries));
+        List<String> allMovieIds = MovieDatabase.filterBy(af);
         List<Rating> allMovieRatings = getMovieRatings(allMovieIds);
         allMovieRatings.sort(Collections.reverseOrder());
         HashMap<String, Integer> usedGenres = new HashMap<>();
 
-        int movieCount = 0, idx = allMovieRatings.size() - 1;
+        int movieCount = 0, idx = 0;
         while (movieCount < 20) { // Limit to add 20
-            Movie currentMovie = MovieDatabase.getMovie(allMovieIds.get(idx));
+            Movie currentMovie = MovieDatabase.getMovie(allMovieRatings.get(idx).getItem());
             String[] currentGenres = currentMovie.getGenres().split(",");
             if (!checkIfGenreUsed(currentGenres, usedGenres)) {
-                selectedMovieIds.add(allMovieIds.get(idx));
+                selectedMovieIds.add(allMovieRatings.get(idx).getItem());
                 ++movieCount;
-                --idx;
+                ++idx;
             }
-
         }
 
         return selectedMovieIds;
@@ -51,9 +54,11 @@ public class RecommendationRunner implements Recommender {
 
     private Rating getTotalRatings(String movieId) {
         double totalRating = 0;
+        int raterCount = 0;
         for (Rater rater : RaterDatabase.getRaters()) {
             if (!rater.hasRating(movieId)) continue;
             totalRating += rater.getRating(movieId);
+            ++raterCount;
         }
         return new Rating(movieId, totalRating);
     }
