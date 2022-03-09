@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="68d95807-75a2-40eb-ae36-ca5932e3a704" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/submission/week3.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DataStructurePerformance/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DataStructurePerformance/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DataStructurePerformance/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DataStructurePerformance/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DataStructurePerformance/DataStructurePerformance.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DataStructurePerformance/out/production/DataStructurePerformance/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DataStructurePerformance/src/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/application/LaunchClass.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/application/LaunchClass.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/document/DocumentBenchmarking.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/document/DocumentBenchmarking.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/document/EfficientDocument.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/document/EfficientDocument.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/textgen/MyLinkedListTester.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/textgen/MyLinkedListTester.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/application/LaunchClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/LaunchClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/document/BasicDocument.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/document/BasicDocument.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/document/DocumentBenchmarking.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/document/DocumentBenchmarking.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/document/EfficientDocument.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/document/EfficientDocument.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/textgen/MyLinkedListTester.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/textgen/MyLinkedListTester.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
+  <component name="FormatOnSaveOptions">
+    <option name="myRunOnSave" value="true" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="2" />
+  </component>
+  <component name="ProjectId" id="265QdCHbM139RYkJ9R2VJma5p2l" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="sortByType" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="TODO_SCOPE" value="All Places" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+  </component>
+  <component name="RunManager" selected="JUnit.MyLinkedListTester">
+    <configuration name="DocumentBenchmarking" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="document.DocumentBenchmarking" />
+      <module name="MOOCTextEditor" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="document.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EfficientDocument" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="document.EfficientDocument" />
+      <module name="MOOCTextEditor" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="document.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MainApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="application.MainApp" />
+      <module name="MOOCTextEditor" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="application.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MyLinkedListTester" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="MOOCTextEditor" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="textgen.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="textgen" />
+      <option name="MAIN_CLASS_NAME" value="textgen.MyLinkedListTester" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.MainApp" />
+      <item itemvalue="Application.EfficientDocument" />
+      <item itemvalue="Application.DocumentBenchmarking" />
+      <item itemvalue="JUnit.MyLinkedListTester" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.MyLinkedListTester" />
+        <item itemvalue="Application.DocumentBenchmarking" />
+        <item itemvalue="Application.EfficientDocument" />
+        <item itemvalue="Application.MainApp" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="68d95807-75a2-40eb-ae36-ca5932e3a704" name="Changes" comment="" />
+      <created>1646711057790</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1646711057790</updated>
+      <workItem from="1646711058986" duration="4343000" />
+      <workItem from="1646716202805" duration="5279000" />
+      <workItem from="1646769950453" duration="17000" />
+      <workItem from="1646842386972" duration="674000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
