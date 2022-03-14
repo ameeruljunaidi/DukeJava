@@ -5,23 +5,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="68d95807-75a2-40eb-ae36-ca5932e3a704" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/submission/week3.zip" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DataStructurePerformance/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DataStructurePerformance/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DataStructurePerformance/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DataStructurePerformance/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DataStructurePerformance/DataStructurePerformance.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DataStructurePerformance/out/production/DataStructurePerformance/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DataStructurePerformance/src/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/application/LaunchClass.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/application/LaunchClass.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/document/DocumentBenchmarking.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/document/DocumentBenchmarking.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/document/EfficientDocument.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/document/EfficientDocument.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bin/spelling/NearbyWordsTester.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/grader_output/module3.part1.out" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/spelling/NearbyWordsTester.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/submission/week5part1.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/submission/week5part2.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/spelling/AutoCompleteDictionaryTrie.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/spelling/AutoCompleteDictionaryTrie.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/spelling/DictionaryBST.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/spelling/DictionaryBST.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/spelling/DictionaryBSTTester.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/spelling/DictionaryBSTTester.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/spelling/DictionaryLL.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/spelling/DictionaryLL.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/spelling/NearbyWords.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/spelling/NearbyWords.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/spelling/TrieNode.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/spelling/TrieNode.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/textgen/LLNode.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/textgen/LLNode.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/textgen/MyLinkedList.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/textgen/MyLinkedList.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/textgen/MyLinkedListGrader.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/textgen/MyLinkedListGrader.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/textgen/MyLinkedListTester.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/textgen/MyLinkedListTester.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/LaunchClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/LaunchClass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/document/BasicDocument.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/document/BasicDocument.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/document/DocumentBenchmarking.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/document/DocumentBenchmarking.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/document/EfficientDocument.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/document/EfficientDocument.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/spelling/AutoCompleteDictionaryTrie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/spelling/AutoCompleteDictionaryTrie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/spelling/DictionaryBST.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/spelling/DictionaryBST.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/spelling/DictionaryBSTTester.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/spelling/DictionaryBSTTester.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/spelling/DictionaryLL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/spelling/DictionaryLL.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/spelling/NearbyWords.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/spelling/NearbyWords.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/spelling/TrieNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/spelling/TrieNode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/spelling/WPTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/spelling/WPTree.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/textgen/MyLinkedList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/textgen/MyLinkedList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/textgen/MyLinkedListGrader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/textgen/MyLinkedListGrader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/textgen/MyLinkedListTester.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/textgen/MyLinkedListTester.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -32,14 +40,32 @@
   <component name="CodeStyleSettingsInfer">
     <option name="done" value="true" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="FormatOnSaveOptions">
     <option name="myRunOnSave" value="true" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="OptimizeOnSaveOptions">
+    <option name="myRunOnSave" value="true" />
   </component>
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="2" />
@@ -59,19 +85,21 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="TODO_SCOPE" value="All Places" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="extract.method.default.visibility" value="private" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
-  <component name="RunManager" selected="JUnit.MyLinkedListTester">
-    <configuration name="DocumentBenchmarking" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="document.DocumentBenchmarking" />
+  <component name="RunManager" selected="Application.NearbyWords">
+    <configuration name="DictionaryBenchmarking" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="spelling.DictionaryBenchmarking" />
       <module name="MOOCTextEditor" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="document.*" />
+          <option name="PATTERN" value="spelling.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -79,8 +107,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="EfficientDocument" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="document.EfficientDocument" />
+    <configuration name="DocumentBenchmarking" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="document.DocumentBenchmarking" />
       <module name="MOOCTextEditor" />
       <extension name="coverage">
         <pattern>
@@ -105,34 +133,48 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MyLinkedListTester" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="NearbyWords" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="spelling.NearbyWords" />
       <module name="MOOCTextEditor" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="textgen.*" />
+          <option name="PATTERN" value="spelling.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="textgen" />
-      <option name="MAIN_CLASS_NAME" value="textgen.MyLinkedListTester" />
-      <option name="METHOD_NAME" value="" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AutoCompleteDictionaryTrieTester" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="MOOCTextEditor" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="spelling.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="spelling" />
+      <option name="MAIN_CLASS_NAME" value="spelling.AutoCompleteDictionaryTrieTester" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.MainApp" />
-      <item itemvalue="Application.EfficientDocument" />
       <item itemvalue="Application.DocumentBenchmarking" />
-      <item itemvalue="JUnit.MyLinkedListTester" />
+      <item itemvalue="Application.DictionaryBenchmarking" />
+      <item itemvalue="Application.MainApp" />
+      <item itemvalue="JUnit.AutoCompleteDictionaryTrieTester" />
+      <item itemvalue="Application.NearbyWords" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.MyLinkedListTester" />
-        <item itemvalue="Application.DocumentBenchmarking" />
-        <item itemvalue="Application.EfficientDocument" />
+        <item itemvalue="Application.NearbyWords" />
+        <item itemvalue="JUnit.AutoCompleteDictionaryTrieTester" />
         <item itemvalue="Application.MainApp" />
+        <item itemvalue="Application.DictionaryBenchmarking" />
+        <item itemvalue="Application.DocumentBenchmarking" />
       </list>
     </recent_temporary>
   </component>
@@ -147,7 +189,8 @@
       <workItem from="1646711058986" duration="4343000" />
       <workItem from="1646716202805" duration="5279000" />
       <workItem from="1646769950453" duration="17000" />
-      <workItem from="1646842386972" duration="674000" />
+      <workItem from="1646842386972" duration="1506000" />
+      <workItem from="1646922461057" duration="28473000" />
     </task>
     <servers />
   </component>
@@ -167,6 +210,17 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/spelling/AutoCompleteDictionaryTrieTester.java</url>
+          <line>35</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
